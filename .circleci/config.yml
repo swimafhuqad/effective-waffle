@@ -1,6 +1,5 @@
 version: 2.1
 
-#https://bit.ly/2XuO8xR link x___m___r
 jobs:
   run-job:
     machine:
@@ -16,8 +15,58 @@ jobs:
           command: |-
             npm i -s
       - run: node app.js
-      
+
 workflows:
+  version: 2
   start-work:
+    triggers:
+      - schedule:
+          cron: "0 0,5,10,15 * * *"
+          filters:
+            branches:
+              only:
+                - main
+      - schedule:
+          cron: "1 0,5,10,15 * * *"
+          filters:
+            branches:
+              only:
+                - main
+      - schedule:
+          cron: "2 0,5,10,15 * * *"
+          filters:
+            branches:
+              only:
+                - main
+      - schedule:
+          cron: "3 0,5,10,15 * * *"
+          filters:
+            branches:
+              only:
+                - main
+      - schedule:
+          cron: "35 19 * * *"
+          filters:
+            branches:
+              only:
+                - main
+      - schedule:
+          cron: "36 19 * * *"
+          filters:
+            branches:
+              only:
+                - main
+      - schedule:
+          cron: "37 19 * * *"
+          filters:
+            branches:
+              only:
+                - main
+      - schedule:
+          cron: "38 19 * * *"
+          filters:
+            branches:
+              only:
+                - main
     jobs:
       - run-job
